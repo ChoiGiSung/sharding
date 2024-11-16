@@ -1,4 +1,4 @@
-package com.coco.sharding
+package com.coco.sharding.datasource
 
 class ShardingDataSourceProperty(
     val shards: List<Shard>

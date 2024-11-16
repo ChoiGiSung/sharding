@@ -1,4 +1,4 @@
-package com.coco.sharding
+package com.coco.sharding.datasource
 
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.context.annotation.Bean

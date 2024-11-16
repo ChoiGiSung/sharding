@@ -1,4 +1,4 @@
-package com.coco.sharding
+package com.coco.sharding.datasource
 
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource
 import java.util.LinkedHashMap

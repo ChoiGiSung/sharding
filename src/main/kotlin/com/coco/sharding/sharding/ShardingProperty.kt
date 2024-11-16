@@ -1,4 +1,6 @@
-package com.coco.sharding
+package com.coco.sharding.sharding
+
+import com.coco.sharding.datasource.ShardingStrategy
 
 class ShardingProperty(
     private val strategy: ShardingStrategy,

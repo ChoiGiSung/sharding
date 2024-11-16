@@ -3,14 +3,22 @@ package com.coco.sharding.sharding
 import com.coco.sharding.datasource.ShardingStrategy
 
 class ShardingProperty(
-    private val strategy: ShardingStrategy,
-    private val rules: List<ShardingRule>,
-    private val mod: Int
+    val strategy: ShardingStrategy,
+    val rules: List<ShardingRule>,
+    val mod: Int
 ) {
 
+    fun isRangeSharding(): Boolean {
+        return strategy == ShardingStrategy.RANGE
+    }
+
+    fun isModulusSharding(): Boolean {
+        return strategy == ShardingStrategy.MODULAR
+    }
+
     class ShardingRule(
-        private val shardNo: Int,
-        private val rangeMin: Long,
-        private val rangeMax: Long
+        val shardNo: Int,
+        val rangeMin: Long,
+        val rangeMax: Long
     )
 }

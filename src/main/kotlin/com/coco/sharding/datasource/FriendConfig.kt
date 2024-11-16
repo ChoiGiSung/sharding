@@ -36,7 +36,9 @@ class FriendConfig(
     }
 
     companion object {
-        private const val SHARD_DELIMITER = "-"
+        const val SHARD_DELIMITER = "-"
+        const val MASTER = "master"
+        const val SLAVE = "slave"
     }
 
 }

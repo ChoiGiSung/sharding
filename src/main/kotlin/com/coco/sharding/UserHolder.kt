@@ -33,7 +33,7 @@ class UserHolder {
     }
 
     class Sharding(
-        private val shardingTarget: ShardingTarget,
-        private val shardKey: Long
+        val shardingTarget: ShardingTarget,
+        val shardKey: Long
     )
 }

@@ -1,13 +1,14 @@
 package com.coco.sharding.datasource
 
-import org.springframework.boot.context.properties.ConfigurationProperties
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.jdbc.datasource.DriverManagerDataSource
 import org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy
 import javax.sql.DataSource
 
 @Configuration
-@ConfigurationProperties(prefix = "datasource")
+@ConfigurationPropertiesScan
 class FriendConfig(
     private val friend: ShardingDataSourceProperty
 ) {
@@ -31,8 +32,14 @@ class FriendConfig(
         return LazyConnectionDataSourceProxy(router)
     }
 
+    // 데이터소스를 생성하는 메서드 구현
     fun dataSource(username: String, password: String, url: String): DataSource {
-        TODO("Not yet implemented")
+        val dataSource = DriverManagerDataSource()
+        dataSource.username = username
+        dataSource.password = password
+        dataSource.url = url
+        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver")
+        return dataSource
     }
 
     companion object {

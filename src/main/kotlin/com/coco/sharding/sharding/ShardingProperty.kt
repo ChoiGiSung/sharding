@@ -1,7 +1,9 @@
 package com.coco.sharding.sharding
 
 import com.coco.sharding.datasource.ShardingStrategy
+import org.springframework.boot.context.properties.ConfigurationProperties
 
+@ConfigurationProperties(prefix = "sharding.friend")
 class ShardingProperty(
     val strategy: ShardingStrategy,
     val rules: List<ShardingRule>,

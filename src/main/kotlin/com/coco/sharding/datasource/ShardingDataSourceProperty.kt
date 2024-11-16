@@ -1,5 +1,8 @@
 package com.coco.sharding.datasource
 
+import org.springframework.boot.context.properties.ConfigurationProperties
+
+@ConfigurationProperties(prefix = "datasource.friend")
 class ShardingDataSourceProperty(
     val shards: List<Shard>
 ) {

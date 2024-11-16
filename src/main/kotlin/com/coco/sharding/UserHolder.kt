@@ -8,18 +8,18 @@ class UserHolder {
         private val userContext = ThreadLocal<Context>()
 
         fun setSharding(target: ShardingTarget, shardKey: Long) {
-            getUserContext().sharding = Sharding(target, shardKey)
+            getUserContext()?.sharding = Sharding(target, shardKey)
         }
 
         fun clearSharding() {
-            getUserContext().sharding = null
+            getUserContext()?.sharding = null
         }
 
         fun getSharding(): Sharding? {
-            return getUserContext().sharding
+            return getUserContext()?.sharding
         }
 
-        private fun getUserContext(): Context {
+        private fun getUserContext(): Context? {
             return userContext.get()
         }
     }

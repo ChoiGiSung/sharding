@@ -12,10 +12,7 @@ import org.springframework.transaction.annotation.Transactional
 @Service
 @Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRES_NEW, readOnly = true)
 @Sharding(target = ShardingTarget.FRIEND)
-class FriendRepositoryService : ApplicationContextAware {
-    override fun setApplicationContext(applicationContext: ApplicationContext) {
-        TODO("Not yet implemented")
-    }
+class FriendRepositoryService {
 
     // first parameter is sharding key
     @Transactional(isolation = Isolation.READ_COMMITTED)

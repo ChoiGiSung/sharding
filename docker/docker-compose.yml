@@ -16,6 +16,9 @@ services:
     volumes:
       - mysql-master1-data:/var/lib/mysql
       - ./init-scripts/master1-init.sql:/docker-entrypoint-initdb.d/master1-init.sql
+    command: --server-id=1 --log-bin=mysql-bin
+    networks:
+      - mysql_net
 
   # Slave 1
   mysql-slave-1:
@@ -34,6 +37,9 @@ services:
     volumes:
       - mysql-slave1-data:/var/lib/mysql
       - ./init-scripts/slave1-init.sql:/docker-entrypoint-initdb.d/slave1-init.sql
+    command: --server-id=2
+    networks:
+      - mysql_net
 
   # Master 2
   mysql-master-2:
@@ -50,6 +56,9 @@ services:
     volumes:
       - mysql-master2-data:/var/lib/mysql
       - ./init-scripts/master2-init.sql:/docker-entrypoint-initdb.d/master2-init.sql
+    command: --server-id=3 --log-bin=mysql-bin
+    networks:
+      - mysql_net
 
   # Slave 2
   mysql-slave-2:
@@ -68,6 +77,13 @@ services:
     volumes:
       - mysql-slave2-data:/var/lib/mysql
       - ./init-scripts/slave2-init.sql:/docker-entrypoint-initdb.d/slave2-init.sql
+    command: --server-id=4
+    networks:
+      - mysql_net
+
+networks:
+  mysql_net:
+    driver: bridge
 
 volumes:
   mysql-master1-data:

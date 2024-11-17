@@ -1,5 +1,8 @@
 -- MySQL 마스터1에서 복제 계정 생성
-CREATE USER 'repluser'@'%' IDENTIFIED BY '1234';
+
+RESET MASTER;
+
+CREATE USER 'repluser'@'%' IDENTIFIED WITH 'mysql_native_password' BY '1234';
 GRANT REPLICATION SLAVE ON *.* TO 'repluser'@'%';
 FLUSH PRIVILEGES;
 

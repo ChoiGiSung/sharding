@@ -27,14 +27,4 @@ class RepositoryServiceAspect {
         return result
     }
 
-//    @Around(value = "@annotation(sharding)", argNames = "pjp, sharding")
-//    fun handler(pjp: ProceedingJoinPoint, sharding: Sharding): Any {
-//        UserHolder.setSharding(sharding.target, 1)
-//
-//        val result = pjp.proceed()
-//
-//        UserHolder.clearSharding()
-//
-//        return result
-//    }
 }

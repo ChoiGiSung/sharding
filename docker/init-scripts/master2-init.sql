@@ -9,7 +9,8 @@ FLUSH PRIVILEGES;
 -- 필요한 테이블 생성 예시
 CREATE DATABASE IF NOT EXISTS master2db;
 USE master2db;
-CREATE TABLE IF NOT EXISTS sample_table (
-    id INT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL
+CREATE TABLE friend (
+    id BIGINT AUTO_INCREMENT,
+    user_id BIGINT NOT NULL,
+    PRIMARY KEY (id)
 );

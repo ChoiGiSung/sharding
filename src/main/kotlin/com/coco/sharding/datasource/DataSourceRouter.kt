@@ -1,6 +1,5 @@
 package com.coco.sharding.datasource
 
-import com.coco.sharding.RoundRobin
 import com.coco.sharding.UserHolder
 import com.coco.sharding.datasource.FriendConfig.Companion.MASTER
 import com.coco.sharding.datasource.FriendConfig.Companion.SHARD_DELIMITER

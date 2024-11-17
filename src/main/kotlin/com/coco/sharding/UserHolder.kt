@@ -11,7 +11,6 @@ class UserHolder {
             if (getUserContext() == null) {
                 userContext.set(Context(Sharding(target, shardKey)))
             }
-            print("")
         }
 
         fun clearSharding() {

@@ -1,6 +1,4 @@
-package com.coco.sharding
-
-import com.coco.sharding.sharding.ShardingTarget
+package com.coco.sharding.sharding
 
 class UserHolder {
 

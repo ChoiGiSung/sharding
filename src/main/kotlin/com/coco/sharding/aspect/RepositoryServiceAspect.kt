@@ -8,15 +8,15 @@ import org.aspectj.lang.annotation.Aspect
 import org.aspectj.lang.annotation.Pointcut
 import org.springframework.stereotype.Component
 
-@Component
 @Aspect
+@Component
 class RepositoryServiceAspect {
 
     @Pointcut("execution(* com.coco.sharding.repository.*RepositoryService.*(..))")
     private fun repositoryService() {
     }
 
-    @Around("repositoryService() && @with(sharding) && args(shardKey,..)")
+    @Around("repositoryService() && @within(sharding) && args(shardKey,..)")
     fun handler(proceedingJoinPoint: ProceedingJoinPoint, sharding: Sharding, shardKey: Long): Any {
         UserHolder.setSharding(sharding.target, shardKey)
 
@@ -26,4 +26,15 @@ class RepositoryServiceAspect {
 
         return result
     }
+
+//    @Around(value = "@annotation(sharding)", argNames = "pjp, sharding")
+//    fun handler(pjp: ProceedingJoinPoint, sharding: Sharding): Any {
+//        UserHolder.setSharding(sharding.target, 1)
+//
+//        val result = pjp.proceed()
+//
+//        UserHolder.clearSharding()
+//
+//        return result
+//    }
 }
